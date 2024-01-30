@@ -87,8 +87,11 @@ docker run -it \
 
 You should now be able to load pgAdmin on a web browser by browsing to `localhost:8080`. Use the same email and password you used for running the container to log in.
 
+To create a database in pgAdmin 
 ![steps](Captura1.PNG)
 
 Here use pg-database as name, and make sure to have the container with the port 5432 active
 
 ![steps](Captura2.PNG)
+
+Now, you should be able to see the table uploaded with python
