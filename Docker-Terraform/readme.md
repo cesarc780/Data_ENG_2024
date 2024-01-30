@@ -45,3 +45,44 @@ To check that the data was sucessfully loaded to the database , we access the da
 
 ## Conecting pgAdmin and Postgres
 _([Video source](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=7))_
+
+pgcli is a good to acess the database. However, in order to acess it with a visual tool we may want to use pgAdmin.
+
+To do so, we require to connect the ports for the pgAdmin and database.
+
+Let's create a virtual Docker network called `pg-network`:
+
+```bash
+docker network create pg-network
+```
+We will now re-run our Postgres container with the added network name and the container network name, so that the pgAdmin container can find it (we'll use `pg-database` for the container name):
+
+```bash
+docker run -it \
+    -e POSTGRES_USER="root" \
+    -e POSTGRES_PASSWORD="root" \
+    -e POSTGRES_DB="ny_taxi" \
+    -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    --network=pg-network \
+    --name pg-database \
+    postgres:13
+```
+
+We will now run the pgAdmin container on another terminal:
+```bash
+docker run -it \
+    -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+    -e PGADMIN_DEFAULT_PASSWORD="root" \
+    -p 8080:80 \
+    --network=pg-network \
+    --name pgadmin \
+    dpage/pgadmin4
+```
+* The container needs 2 environment variables: a login email and a password. We use `admin@admin.com` and `root` in this example.
+ * ***IMPORTANT: these are example values for testing and should never be used on production. Change them accordingly when needed.***
+* pgAdmin is a web app and its default port is 80; we map it to 8080 in our localhost to avoid any possible conflicts.
+* Just like with the Postgres container, we specify a network and a name. However, the name in this example isn't really necessary because there won't be any containers trying to access this particular container.
+* The actual image name is `dpage/pgadmin4` .
+
+You should now be able to load pgAdmin on a web browser by browsing to `localhost:8080`. Use the same email and password you used for running the container to log in.
