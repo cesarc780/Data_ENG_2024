@@ -81,8 +81,14 @@ docker run -it \
 ```
 * The container needs 2 environment variables: a login email and a password. We use `admin@admin.com` and `root` in this example.
  * ***IMPORTANT: these are example values for testing and should never be used on production. Change them accordingly when needed.***
-* pgAdmin is a web app and its default port is 80; we map it to 8080 in our localhost to avoid any possible conflicts.
+* pgAdmin is a web app and its default port is 80; we map it to 8080 i n our localhost to avoid any possible conflicts.
 * Just like with the Postgres container, we specify a network and a name. However, the name in this example isn't really necessary because there won't be any containers trying to access this particular container.
 * The actual image name is `dpage/pgadmin4` .
 
 You should now be able to load pgAdmin on a web browser by browsing to `localhost:8080`. Use the same email and password you used for running the container to log in.
+
+![steps](Captura1.PNG)
+
+Here use pg-database as name, and make sure to have the container with the port 5432 active
+
+![steps](Captura2.PNG)
