@@ -37,6 +37,6 @@ pgcli -h localhost -p 5432 -u root -d ny_taxi
 
 _([Video source](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=4))_
 
-We will now create a Jupyter Notebook [Project.ipynb ](https://github.com/cesarc780/Data_Eng_2024/blob/main/Docker-Terraform/Project.ipynb) file which we will use to read a the PArquet file, transfrom it and  export it to Postgres.
+We will now create a Jupyter Notebook [Project.ipynb ](https://github.com/cesarc780/Data_Eng_2024/blob/main/Docker-Terraform/Project.ipynb) file which we will use to read a the Parquet file, transfrom it and  export it to Postgres.
 
 We will use data from the [NYC TLC Trip Record Data website](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). and we will take the data from January 2021 "Yellow Taxi Trip Records" Since the format is Parquet we require to transform it to csv in order to make the code work
