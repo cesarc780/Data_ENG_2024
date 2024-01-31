@@ -97,6 +97,7 @@ Here use pg-database as name, and make sure to have the container with the port 
 Now, you should be able to see the table uploaded with python
 
 ## Dockerizing the Script
+_([Video source](https://www.youtube.com/watch?v=B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb))_
 We are going to create a Dockerfile to include our `ingest_data.py` 
 
 ```bash
