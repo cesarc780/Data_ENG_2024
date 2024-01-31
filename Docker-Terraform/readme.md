@@ -119,3 +119,17 @@ Now, let's create a docker image using the following code :
 
 ```docker build -t taxi_ingest:v001 -f Dockerfile.save . ```
 
+We are now ready to run the script with the foillowing command 
+
+```
+docker run -it \
+    --network=pg-network \
+    taxi_ingest:v001 \
+    --user=root \
+    --password=root \
+    --host=pg-database \
+    --port=5432 \
+    --db=ny_taxi \
+    --table_name=yellow_taxi_trips \
+    --url="https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet)https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet" ```
+
