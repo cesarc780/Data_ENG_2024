@@ -114,3 +114,7 @@ Then we are going to save this file as Dockerfile.save.
 Now we are going to Drop the table we created one step ago. With pcgli we run the following code
  ``` DROP TABLE yellow_taxi_data; ```
 
+Now, let's create a docker image using the following code : 
+
+```docker build -t taxi_ingest:v001 -f Dockerfile.save . ```
+
